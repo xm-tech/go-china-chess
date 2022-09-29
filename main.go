@@ -9,19 +9,27 @@ import (
 )
 
 type Game struct {
+	circle *Circle
+}
+
+type Circle struct {
 	x float64
 	y float64
 }
 
+func (circle *Circle) Run() {
+	circle.x += 1
+}
+
 func (g *Game) Update() error {
 	log.Println("Update exec")
+	g.circle.Run()
 	return nil
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
 	ebitenutil.DebugPrint(screen, "Hello Ebiten !")
-	ebitenutil.DrawCircle(screen, g.x, g.y, 30, color.White)
-	g.x += 1
+	ebitenutil.DrawCircle(screen, g.circle.x, g.circle.y, 30, color.White)
 	log.Println("Draw exec")
 }
 
@@ -32,7 +40,7 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeigh
 func main() {
 	ebiten.SetWindowSize(640, 480)
 	ebiten.SetWindowTitle("hello ebiten")
-	game := &Game{x: 0, y: 100}
+	game := &Game{&Circle{x: 0, y: 100}}
 	if err := ebiten.RunGame(game); err != nil {
 		log.Fatal(err)
 	}
