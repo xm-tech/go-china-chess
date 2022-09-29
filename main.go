@@ -1,6 +1,7 @@
 package main
 
 import (
+	"image/color"
 	"log"
 
 	"github.com/hajimehoshi/ebiten/v2"
@@ -8,6 +9,8 @@ import (
 )
 
 type Game struct {
+	x float64
+	y float64
 }
 
 func (g *Game) Update() error {
@@ -17,6 +20,8 @@ func (g *Game) Update() error {
 
 func (g *Game) Draw(screen *ebiten.Image) {
 	ebitenutil.DebugPrint(screen, "Hello Ebiten !")
+	ebitenutil.DrawCircle(screen, g.x, g.y, 30, color.White)
+	g.x += 1
 	log.Println("Draw exec")
 }
 
@@ -27,7 +32,8 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeigh
 func main() {
 	ebiten.SetWindowSize(640, 480)
 	ebiten.SetWindowTitle("hello ebiten")
-	if err := ebiten.RunGame(&Game{}); err != nil {
+	game := &Game{x: 0, y: 100}
+	if err := ebiten.RunGame(game); err != nil {
 		log.Fatal(err)
 	}
 }
