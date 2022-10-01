@@ -1,6 +1,7 @@
 package model
 
 import (
+	"image/color"
 	"log"
 
 	"github.com/hajimehoshi/ebiten/v2"
@@ -16,7 +17,8 @@ type Game struct {
 	Circle       *Circle
 }
 
-func NewGame(windowWidth, windowHeight, screenWidth, screenHeight int, titile string, circle *Circle) *Game {
+func NewGame(windowWidth, windowHeight, screenWidth, screenHeight int, titile string) *Game {
+	circle := NewCircle(0, 100, 15, color.White)
 	game := &Game{
 		WindowWidth:  windowWidth,
 		WindowHeight: windowHeight,
