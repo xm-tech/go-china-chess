@@ -23,3 +23,8 @@ func NewChessBoard() *Chessboard {
 	chessBoard.img = img
 	return chessBoard
 }
+
+// 初始化棋盘上棋子
+func (self *Chessboard) InitChess() {
+
+}
