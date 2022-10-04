@@ -10,7 +10,7 @@ import (
 // 棋盘
 type Chessboard struct {
 	// 棋盘背景图
-	img     *ebiten.Image
+	bg      *ebiten.Image
 	chesses []*Chessman
 }
 
@@ -20,7 +20,7 @@ func NewChessBoard() *Chessboard {
 	if err != nil {
 		log.Println("NewChessBoard Err,err=", err)
 	}
-	chessBoard.img = img
+	chessBoard.bg = img
 	return chessBoard
 }
 

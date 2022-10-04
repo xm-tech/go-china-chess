@@ -8,21 +8,23 @@ import (
 )
 
 type Game struct {
-	WindowWidth  int
-	WindowHeight int
-	ScreenWidth  int
-	ScreenHeight int
-	Titile       string
-	ChessBoard   *Chessboard
+	WindowWidth      int
+	WindowHeight     int
+	ScreenWidth      int
+	ScreenHeight     int
+	Titile           string
+	ChessBoard       *Chessboard
+	DrawImageOptions *ebiten.DrawImageOptions
 }
 
 func NewGame(windowWidth, windowHeight, screenWidth, screenHeight int, titile string) *Game {
 	game := &Game{
-		WindowWidth:  windowWidth,
-		WindowHeight: windowHeight,
-		Titile:       titile,
-		ScreenWidth:  screenWidth,
-		ScreenHeight: screenHeight,
+		WindowWidth:      windowWidth,
+		WindowHeight:     windowHeight,
+		Titile:           titile,
+		ScreenWidth:      screenWidth,
+		ScreenHeight:     screenHeight,
+		DrawImageOptions: &ebiten.DrawImageOptions{},
 	}
 
 	chessBoard := NewChessBoard()
@@ -31,24 +33,36 @@ func NewGame(windowWidth, windowHeight, screenWidth, screenHeight int, titile st
 }
 
 func (g *Game) Update() error {
-	log.Println("Update exec")
+	// log.Println("Update exec")
 	return nil
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
 	ebitenutil.DebugPrint(screen, g.Titile)
-	img, _, err := ebitenutil.NewImageFromFile("res/ChessBoard.png")
+	// 画棋盘
+	g.drawChessBoard(screen)
+	// log.Println("Draw exec")
+}
+
+func (g *Game) drawChessBoard(screen *ebiten.Image) {
+	// 画棋盘
+	screen.DrawImage(g.ChessBoard.bg, g.DrawImageOptions)
+
+	// 画棋子
+	x := 0 + BoardEdgeWidth
+	y := WindowHeight - GridSize
+	chessImg, _, err := ebitenutil.NewImageFromFile("res/RedJu.png")
 	if err != nil {
-		log.Println(err)
+		log.Println("drawChessBoard Err, err=", err)
 		return
 	}
-	op := &ebiten.DrawImageOptions{}
-	screen.DrawImage(img, op)
-	log.Println("Draw exec")
+	options := &ebiten.DrawImageOptions{}
+	options.GeoM.Translate(float64(x), float64(y))
+	screen.DrawImage(chessImg, options)
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
-	return g.ScreenWidth, g.ScreenHeight
+	return g.WindowWidth, g.WindowHeight
 }
 
 func (g *Game) Start() {
