@@ -4,10 +4,14 @@ import "github.com/hajimehoshi/ebiten/v2"
 
 // 棋子
 type Chessman struct {
-	X     int
-	Y     int
-	Id    int
-	Name  string
+	X    int
+	Y    int
+	Id   int
+	Name string
+	// 图片名
 	Image string
-	Img   *ebiten.Image
+	// 渲染图片
+	Img *ebiten.Image
+	// 阵营 0:红， 1:黑
+	Camp int
 }

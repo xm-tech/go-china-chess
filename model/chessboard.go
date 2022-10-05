@@ -37,6 +37,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - GridSize,
 		Id:    RedJu0,
 		Image: "res/RedJu.png",
+		Camp:  0,
 	}
 	img, _, _ := ebitenutil.NewImageFromFile(self.Chesses[RedJu0].Image)
 	self.Chesses[RedJu0].Img = img
@@ -47,6 +48,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - GridSize,
 		Id:    RedMa0,
 		Image: "res/RedMa.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedMa0].Image)
 	self.Chesses[RedMa0].Img = img
@@ -57,6 +59,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - GridSize,
 		Id:    RedXiang0,
 		Image: "res/RedXiang.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedXiang0].Image)
 	self.Chesses[RedXiang0].Img = img
@@ -67,6 +70,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - GridSize,
 		Id:    RedMa0,
 		Image: "res/RedShi.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedShi0].Image)
 	self.Chesses[RedShi0].Img = img
@@ -77,6 +81,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - GridSize,
 		Id:    RedShuai,
 		Image: "res/RedShuai.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedShuai].Image)
 	self.Chesses[RedShuai].Img = img
@@ -87,6 +92,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - GridSize,
 		Id:    RedShi1,
 		Image: "res/RedShi.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedShi1].Image)
 	self.Chesses[RedShi1].Img = img
@@ -97,6 +103,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - GridSize,
 		Id:    RedXiang1,
 		Image: "res/RedXiang.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedXiang1].Image)
 	self.Chesses[RedXiang1].Img = img
@@ -107,6 +114,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - GridSize,
 		Id:    RedMa1,
 		Image: "res/RedMa.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedMa1].Image)
 	self.Chesses[RedMa1].Img = img
@@ -117,6 +125,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - GridSize,
 		Id:    RedJu1,
 		Image: "res/RedJu.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedJu1].Image)
 	self.Chesses[RedJu1].Img = img
@@ -127,6 +136,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - 3*GridSize,
 		Id:    RedPao0,
 		Image: "res/RedPao.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedPao0].Image)
 	self.Chesses[RedPao0].Img = img
@@ -137,6 +147,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - 3*GridSize,
 		Id:    RedPao1,
 		Image: "res/RedPao.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedPao1].Image)
 	self.Chesses[RedPao1].Img = img
@@ -147,6 +158,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - 4*GridSize,
 		Id:    RedBing0,
 		Image: "res/RedBing.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedBing0].Image)
 	self.Chesses[RedBing0].Img = img
@@ -157,6 +169,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - 4*GridSize,
 		Id:    RedBing1,
 		Image: "res/RedBing.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedBing1].Image)
 	self.Chesses[RedBing1].Img = img
@@ -167,6 +180,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - 4*GridSize,
 		Id:    RedBing2,
 		Image: "res/RedBing.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedBing2].Image)
 	self.Chesses[RedBing2].Img = img
@@ -177,6 +191,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - 4*GridSize,
 		Id:    RedBing3,
 		Image: "res/RedBing.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedBing3].Image)
 	self.Chesses[RedBing3].Img = img
@@ -187,6 +202,7 @@ func (self *Chessboard) InitChess() {
 		Y:     WindowHeight - 4*GridSize,
 		Id:    RedBing4,
 		Image: "res/RedBing.png",
+		Camp:  0,
 	}
 	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[RedBing4].Image)
 	self.Chesses[RedBing4].Img = img
