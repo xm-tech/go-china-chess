@@ -34,7 +34,7 @@ func (self *Chessboard) InitChess() {
 	// 红ju
 	self.Chesses[RedJu0] = &Chessman{
 		X:     0 + BoardEdgeWidth,
-		Y:     WindowHeight - GridSize,
+		Y:     WindowHeight - GridSize + BoardEdgeWidth,
 		Id:    RedJu0,
 		Image: "res/RedJu.png",
 		Camp:  0,
@@ -45,7 +45,7 @@ func (self *Chessboard) InitChess() {
 	// 红马
 	self.Chesses[RedMa0] = &Chessman{
 		X:     self.Chesses[RedJu0].X + GridSize,
-		Y:     WindowHeight - GridSize,
+		Y:     WindowHeight - GridSize + BoardEdgeWidth,
 		Id:    RedMa0,
 		Image: "res/RedMa.png",
 		Camp:  0,
@@ -56,7 +56,7 @@ func (self *Chessboard) InitChess() {
 	// 红相
 	self.Chesses[RedXiang0] = &Chessman{
 		X:     self.Chesses[RedMa0].X + GridSize,
-		Y:     WindowHeight - GridSize,
+		Y:     WindowHeight - GridSize + BoardEdgeWidth,
 		Id:    RedXiang0,
 		Image: "res/RedXiang.png",
 		Camp:  0,
@@ -67,7 +67,7 @@ func (self *Chessboard) InitChess() {
 	// 红士
 	self.Chesses[RedShi0] = &Chessman{
 		X:     self.Chesses[RedXiang0].X + GridSize,
-		Y:     WindowHeight - GridSize,
+		Y:     WindowHeight - GridSize + BoardEdgeWidth,
 		Id:    RedMa0,
 		Image: "res/RedShi.png",
 		Camp:  0,
@@ -78,7 +78,7 @@ func (self *Chessboard) InitChess() {
 	// 红帅
 	self.Chesses[RedShuai] = &Chessman{
 		X:     self.Chesses[RedShi0].X + GridSize,
-		Y:     WindowHeight - GridSize,
+		Y:     WindowHeight - GridSize + BoardEdgeWidth,
 		Id:    RedShuai,
 		Image: "res/RedShuai.png",
 		Camp:  0,
@@ -89,7 +89,7 @@ func (self *Chessboard) InitChess() {
 	// 红士
 	self.Chesses[RedShi1] = &Chessman{
 		X:     self.Chesses[RedShuai].X + GridSize,
-		Y:     WindowHeight - GridSize,
+		Y:     WindowHeight - GridSize + BoardEdgeWidth,
 		Id:    RedShi1,
 		Image: "res/RedShi.png",
 		Camp:  0,
@@ -100,7 +100,7 @@ func (self *Chessboard) InitChess() {
 	// 红相
 	self.Chesses[RedXiang1] = &Chessman{
 		X:     self.Chesses[RedShi1].X + GridSize,
-		Y:     WindowHeight - GridSize,
+		Y:     WindowHeight - GridSize + BoardEdgeWidth,
 		Id:    RedXiang1,
 		Image: "res/RedXiang.png",
 		Camp:  0,
@@ -111,7 +111,7 @@ func (self *Chessboard) InitChess() {
 	// 红马
 	self.Chesses[RedMa1] = &Chessman{
 		X:     self.Chesses[RedXiang1].X + GridSize,
-		Y:     WindowHeight - GridSize,
+		Y:     WindowHeight - GridSize + BoardEdgeWidth,
 		Id:    RedMa1,
 		Image: "res/RedMa.png",
 		Camp:  0,
@@ -122,7 +122,7 @@ func (self *Chessboard) InitChess() {
 	// 红车
 	self.Chesses[RedJu1] = &Chessman{
 		X:     self.Chesses[RedMa1].X + GridSize,
-		Y:     WindowHeight - GridSize,
+		Y:     WindowHeight - GridSize + BoardEdgeWidth,
 		Id:    RedJu1,
 		Image: "res/RedJu.png",
 		Camp:  0,
@@ -208,4 +208,167 @@ func (self *Chessboard) InitChess() {
 	self.Chesses[RedBing4].Img = img
 
 	// 初始化黑棋
+
+	// 黑ju
+	self.Chesses[BlackJu0] = &Chessman{
+		X:     0 + BoardEdgeWidth,
+		Y:     BoardEdgeWidth,
+		Id:    BlackJu0,
+		Image: "res/BlackJu.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackJu0].Image)
+	self.Chesses[BlackJu0].Img = img
+	// 黑马
+	self.Chesses[BlackMa0] = &Chessman{
+		X:     self.Chesses[BlackJu0].X + GridSize,
+		Y:     BoardEdgeWidth,
+		Id:    BlackMa0,
+		Image: "res/BlackMa.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackMa0].Image)
+	self.Chesses[BlackMa0].Img = img
+	// 黑相
+	self.Chesses[BlackXiang0] = &Chessman{
+		X:     self.Chesses[BlackMa0].X + GridSize,
+		Y:     BoardEdgeWidth,
+		Id:    BlackXiang0,
+		Image: "res/BlackXiang.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackXiang0].Image)
+	self.Chesses[BlackXiang0].Img = img
+	// 黑士
+	self.Chesses[BlackShi0] = &Chessman{
+		X:     self.Chesses[BlackXiang0].X + GridSize,
+		Y:     BoardEdgeWidth,
+		Id:    BlackShi0,
+		Image: "res/BlackShi.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackShi0].Image)
+	self.Chesses[BlackShi0].Img = img
+	// 黑将
+	self.Chesses[BlackJiang] = &Chessman{
+		X:     self.Chesses[BlackShi0].X + GridSize,
+		Y:     BoardEdgeWidth,
+		Id:    BlackJiang,
+		Image: "res/BlackJiang.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackJiang].Image)
+	self.Chesses[BlackJiang].Img = img
+	// 黑士
+	self.Chesses[BlackShi1] = &Chessman{
+		X:     self.Chesses[BlackJiang].X + GridSize,
+		Y:     BoardEdgeWidth,
+		Id:    BlackShi1,
+		Image: "res/BlackShi.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackShi1].Image)
+	self.Chesses[BlackShi1].Img = img
+	// 黑相
+	self.Chesses[BlackXiang1] = &Chessman{
+		X:     self.Chesses[BlackShi1].X + GridSize,
+		Y:     BoardEdgeWidth,
+		Id:    BlackXiang1,
+		Image: "res/BlackXiang.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackXiang1].Image)
+	self.Chesses[BlackXiang1].Img = img
+	// 黑马
+	self.Chesses[BlackMa1] = &Chessman{
+		X:     self.Chesses[BlackXiang1].X + GridSize,
+		Y:     BoardEdgeWidth,
+		Id:    BlackMa1,
+		Image: "res/BlackMa.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackMa1].Image)
+	self.Chesses[BlackMa1].Img = img
+	// 黑车
+	self.Chesses[BlackJu1] = &Chessman{
+		X:     self.Chesses[BlackMa1].X + GridSize,
+		Y:     BoardEdgeWidth,
+		Id:    BlackJu1,
+		Image: "res/BlackJu.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackJu1].Image)
+	self.Chesses[BlackJu1].Img = img
+	// 黑炮
+	self.Chesses[BlackPao0] = &Chessman{
+		X:     self.Chesses[BlackJu0].X + GridSize,
+		Y:     BoardEdgeWidth + GridSize*2,
+		Id:    BlackPao0,
+		Image: "res/BlackPao.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackPao0].Image)
+	self.Chesses[BlackPao0].Img = img
+	// 黑炮1
+	self.Chesses[BlackPao1] = &Chessman{
+		X:     self.Chesses[BlackMa1].X,
+		Y:     BoardEdgeWidth + GridSize*2,
+		Id:    BlackPao1,
+		Image: "res/BlackPao.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackPao1].Image)
+	self.Chesses[BlackPao1].Img = img
+	// 黑兵1
+	self.Chesses[BlackZu0] = &Chessman{
+		X:     self.Chesses[BlackJu0].X,
+		Y:     BoardEdgeWidth + GridSize*3,
+		Id:    BlackZu0,
+		Image: "res/BlackBing.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackZu0].Image)
+	self.Chesses[BlackZu0].Img = img
+	// 黑兵2
+	self.Chesses[BlackZu1] = &Chessman{
+		X:     self.Chesses[BlackXiang0].X,
+		Y:     BoardEdgeWidth + GridSize*3,
+		Id:    BlackZu1,
+		Image: "res/BlackBing.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackZu1].Image)
+	self.Chesses[BlackZu1].Img = img
+	// 黑兵3
+	self.Chesses[BlackZu2] = &Chessman{
+		X:     self.Chesses[BlackJiang].X,
+		Y:     BoardEdgeWidth + GridSize*3,
+		Id:    BlackZu2,
+		Image: "res/BlackBing.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackZu2].Image)
+	self.Chesses[BlackZu2].Img = img
+
+	// 黑兵4
+	self.Chesses[BlackZu3] = &Chessman{
+		X:     self.Chesses[BlackXiang1].X,
+		Y:     BoardEdgeWidth + GridSize*3,
+		Id:    BlackZu3,
+		Image: "res/BlackBing.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackZu3].Image)
+	self.Chesses[BlackZu3].Img = img
+	// 黑兵5
+	self.Chesses[BlackZu4] = &Chessman{
+		X:     self.Chesses[BlackJu1].X,
+		Y:     BoardEdgeWidth + GridSize*3,
+		Id:    BlackZu4,
+		Image: "res/BlackBing.png",
+		Camp:  1,
+	}
+	img, _, _ = ebitenutil.NewImageFromFile(self.Chesses[BlackZu4].Image)
+	self.Chesses[BlackZu4].Img = img
+
 }
