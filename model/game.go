@@ -49,19 +49,16 @@ func (g *Game) drawChessBoard(screen *ebiten.Image) {
 	screen.DrawImage(g.ChessBoard.bg, g.DrawImageOptions)
 
 	// 画棋子
-	x := 0 + BoardEdgeWidth
-	y := WindowHeight - GridSize
-	chessImg, _, err := ebitenutil.NewImageFromFile("res/RedJu.png")
-	if err != nil {
-		log.Println("drawChessBoard Err, err=", err)
-		return
+	for _, chess := range g.ChessBoard.Chesses {
+		log.Printf("drawChess,chessId:%v,X:%v,Y:%v", chess.Id, chess.X, chess.Y)
+		options := &ebiten.DrawImageOptions{}
+		options.GeoM.Translate(float64(chess.X), float64(chess.Y))
+		screen.DrawImage(chess.Img, options)
 	}
-	options := &ebiten.DrawImageOptions{}
-	options.GeoM.Translate(float64(x), float64(y))
-	screen.DrawImage(chessImg, options)
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
+	// log.Println("Layout,outsideWidth=", outsideWidth, ",outsideHeight=", outsideHeight)
 	return g.WindowWidth, g.WindowHeight
 }
 
