@@ -5,6 +5,6 @@ import (
 )
 
 func main() {
-	game := model.NewGame(model.WindowWidth, model.WindowHeight, model.ScreenWidth, model.ScreenHeight, "ebiten game demo")
+	game := model.NewGame(model.WindowWidth, model.WindowHeight, model.ScreenWidth, model.ScreenHeight, "china chess")
 	game.Start()
 }

@@ -58,7 +58,6 @@ func (g *Game) drawChessBoard(screen *ebiten.Image) {
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
-	// log.Println("Layout,outsideWidth=", outsideWidth, ",outsideHeight=", outsideHeight)
 	return g.WindowWidth, g.WindowHeight
 }
 
