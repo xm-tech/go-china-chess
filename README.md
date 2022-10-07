@@ -1,6 +1,4 @@
-# 先做出核心的东西，快速原型
-
-## 棋盘摆放
+# 棋盘摆放
 
 ```go
 // 棋子
@@ -14,4 +12,3 @@ type Chessman struct {
 var chesses []*Chessman
 
 ```
-
