@@ -1,6 +1,7 @@
 package model
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/hajimehoshi/ebiten/v2"
@@ -33,8 +34,13 @@ func NewGame(windowWidth, windowHeight, screenWidth, screenHeight int, titile st
 	return game
 }
 
+// 更新状态，1秒60帧
 func (g *Game) Update() error {
 	// log.Println("Update exec")
+	if ebiten.IsMouseButtonPressed(ebiten.MouseButtonLeft) {
+		x, y := ebiten.CursorPosition()
+		fmt.Printf("Update, leftButton pressed,x=%v,y=%v\n", x, y)
+	}
 	return nil
 }
 
@@ -52,10 +58,14 @@ func (g *Game) drawChessBoard(screen *ebiten.Image) {
 	// 画棋子
 	for _, chess := range g.ChessBoard.Chesses {
 		// log.Printf("drawChess,chessId:%v,X:%v,Y:%v,Camp:%v,Image:%v", chess.Id, chess.X, chess.Y, chess.Camp, chess.Image)
-		options := &ebiten.DrawImageOptions{}
-		options.GeoM.Translate(float64(chess.X), float64(chess.Y))
-		screen.DrawImage(chess.Img, options)
+		drawChess(screen, chess)
 	}
+}
+
+func drawChess(screen *ebiten.Image, chess *Chessman) {
+	options := &ebiten.DrawImageOptions{}
+	options.GeoM.Translate(float64(chess.X), float64(chess.Y))
+	screen.DrawImage(chess.Img, options)
 }
 
 func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeight int) {
