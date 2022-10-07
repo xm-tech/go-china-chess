@@ -17,6 +17,7 @@ type Game struct {
 	DrawImageOptions *ebiten.DrawImageOptions
 }
 
+/** Create One Game */
 func NewGame(windowWidth, windowHeight, screenWidth, screenHeight int, titile string) *Game {
 	game := &Game{
 		WindowWidth:      windowWidth,
@@ -50,7 +51,7 @@ func (g *Game) drawChessBoard(screen *ebiten.Image) {
 
 	// 画棋子
 	for _, chess := range g.ChessBoard.Chesses {
-		log.Printf("drawChess,chessId:%v,X:%v,Y:%v", chess.Id, chess.X, chess.Y)
+		// log.Printf("drawChess,chessId:%v,X:%v,Y:%v,Camp:%v,Image:%v", chess.Id, chess.X, chess.Y, chess.Camp, chess.Image)
 		options := &ebiten.DrawImageOptions{}
 		options.GeoM.Translate(float64(chess.X), float64(chess.Y))
 		screen.DrawImage(chess.Img, options)
