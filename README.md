@@ -1,14 +1,6 @@
-# 棋盘摆放
+# 运行
 
-```go
-// 棋子
-type Chessman struct {
-  x int
-  y int
-  img string
-  camp int
-}
+```bash
 
-var chesses []*Chessman
-
+go run main.go
 ```
