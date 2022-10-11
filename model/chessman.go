@@ -11,7 +11,8 @@ type Chessman struct {
 	X  int
 	Y  int
 	// 阵营 0:红， 1:黑
-	Camp  int
+	Camp int
+	// 棋子是否活着
 	Alive bool
 	Name  string
 	// 图片名
