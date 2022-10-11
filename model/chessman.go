@@ -20,13 +20,13 @@ type Chessman struct {
 	Img *ebiten.Image
 }
 
-func NewChessman(id, x, y, camp int, alive bool, name string, image string) *Chessman {
+func NewChessman(id, x, y, camp int, name string, image string) *Chessman {
 	chess := &Chessman{
 		Id:    id,
 		X:     x,
 		Y:     y,
 		Camp:  camp,
-		Alive: alive,
+		Alive: true,
 		Name:  name,
 		Image: image,
 	}

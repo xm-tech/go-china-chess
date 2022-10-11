@@ -40,7 +40,7 @@ func (self *Chessboard) InitChess() {
 	camp := rand.Intn(2)
 
 	for _, v := range ChessBothA {
-		chess := NewChessman(idx, v[1], v[2], camp, true, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
+		chess := NewChessman(idx, v[1], v[2], camp, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
 		fmt.Println("+++", idx, chess.Image, v)
 		self.Chesses[idx] = chess
 
@@ -57,7 +57,7 @@ func (self *Chessboard) InitChess() {
 		camp = 0
 	}
 	for _, v := range ChessBothB {
-		chess := NewChessman(idx, v[1], v[2], camp, true, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
+		chess := NewChessman(idx, v[1], v[2], camp, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
 		fmt.Println("---", idx, chess.Image, v)
 		self.Chesses[idx] = chess
 
