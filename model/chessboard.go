@@ -35,22 +35,16 @@ func (self *Chessboard) InitChess() {
 
 	// 递增的棋子ID
 	var idx int
-
 	// 初始化我方棋子
 	rand.Seed(time.Now().Unix())
 	camp := rand.Intn(2)
+
 	for _, v := range ChessBothA {
-		fmt.Printf("v = %+v\n", v)
-		self.Chesses[idx] = &Chessman{
-			X:     v[1],
-			Y:     v[2],
-			Id:    idx,
-			Camp:  camp,
-			Image: fmt.Sprintf("res/%v-%v.png", camp, v[0]),
-		}
-		fmt.Println(idx, self.Chesses[idx].Image)
-		img, _, _ := ebitenutil.NewImageFromFile(self.Chesses[idx].Image)
-		self.Chesses[idx].Img = img
+		chess := NewChessman(idx, v[1], v[2], camp, true, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
+		fmt.Println("+++", idx, chess.Image, v)
+		img, _, _ := ebitenutil.NewImageFromFile(chess.Image)
+		chess.Img = img
+		self.Chesses[idx] = chess
 
 		idx++
 		if idx == 16 {
@@ -65,17 +59,11 @@ func (self *Chessboard) InitChess() {
 		camp = 0
 	}
 	for _, v := range ChessBothB {
-		fmt.Printf("v = %+v\n", v)
-		self.Chesses[idx] = &Chessman{
-			X:     v[1],
-			Y:     v[2],
-			Id:    idx,
-			Camp:  camp,
-			Image: fmt.Sprintf("res/%v-%v.png", camp, v[0]),
-		}
-		fmt.Println(idx, self.Chesses[idx].Image)
-		img, _, _ := ebitenutil.NewImageFromFile(self.Chesses[idx].Image)
-		self.Chesses[idx].Img = img
+		chess := NewChessman(idx, v[1], v[2], camp, true, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
+		fmt.Println("---", idx, chess.Image, v)
+		img, _, _ := ebitenutil.NewImageFromFile(chess.Image)
+		chess.Img = img
+		self.Chesses[idx] = chess
 
 		idx++
 		if idx == 32 {
