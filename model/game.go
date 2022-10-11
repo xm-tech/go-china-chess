@@ -39,7 +39,8 @@ func (g *Game) Update() error {
 	// log.Println("Update exec")
 	if ebiten.IsMouseButtonPressed(ebiten.MouseButtonLeft) {
 		x, y := ebiten.CursorPosition()
-		fmt.Printf("Update, leftButton pressed,x=%v,y=%v\n", x, y)
+		grid := GetPosByCoord(x, y)
+		fmt.Printf("Update, leftButton pressed,x=%v,y=%v,grid=%v\n", x, y, grid)
 	}
 	return nil
 }

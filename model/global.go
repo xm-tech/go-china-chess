@@ -1,6 +1,8 @@
 // 棋子坐标
 package model
 
+import "fmt"
+
 // 己方16颗棋子出生点
 var ChessBothA = [16][3]int{
 	// {棋子类别, x, y}
@@ -41,4 +43,42 @@ var ChessBothB = [16][3]int{
 	{6, 0 + 8 + 56*4, 8 + 56*3}, // 兵3
 	{6, 0 + 8 + 56*6, 8 + 56*3}, // 兵4
 	{6, 0 + 8 + 56*8, 8 + 56*3}, // 兵5
+}
+
+// 棋盘上的棋子编号
+var GridChesses = [90]int{
+	-1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1,
+	-1, -1, -1, -1, -1, -1, -1, -1, -1,
+}
+
+// 根据坐标得到棋盘位置编号
+func GetPosByCoord(x, y int) int {
+	var gx int
+	if (x - BoardEdgeWidth) < 0 {
+		gx = 0
+	} else {
+		gx = (x - BoardEdgeWidth) / GridSize
+	}
+	if gx > 8 {
+		gx = 8
+	}
+	var gy int
+	if (y - BoardEdgeWidth) < 0 {
+		gy = 0
+	} else {
+		gy = (y - BoardEdgeWidth) / GridSize
+	}
+	if gy > 9 {
+		gy = 9
+	}
+	fmt.Printf("GetPosByCoord,x=%v,y=%v,gx=%v,gy=%v,g=%v\n", x, y, gx, gy, gy*9+gx)
+	return gy*9 + gx
 }

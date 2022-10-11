@@ -19,6 +19,8 @@ type Chessman struct {
 	Image string
 	// 渲染图片
 	Img *ebiten.Image
+	// 棋子所在的格子编号
+	Grid int
 }
 
 func NewChessman(id, x, y, camp int, name string, image string) *Chessman {
@@ -31,6 +33,9 @@ func NewChessman(id, x, y, camp int, name string, image string) *Chessman {
 		Name:  name,
 		Image: image,
 	}
+
+	chess.Grid = 9*chess.Y/GridSize + chess.X/GridSize - 1
+	GridChesses[chess.Grid] = chess.Id
 
 	img, _, _ := ebitenutil.NewImageFromFile(chess.Image)
 	chess.Img = img

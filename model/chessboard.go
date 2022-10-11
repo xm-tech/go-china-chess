@@ -15,6 +15,8 @@ type Chessboard struct {
 	// 棋盘背景图
 	bg      *ebiten.Image
 	Chesses map[int]*Chessman
+	// <坐标编号，棋子ID>
+	GridChesses map[int]*int
 }
 
 func NewChessBoard() *Chessboard {
@@ -41,7 +43,7 @@ func (self *Chessboard) InitChess() {
 
 	for _, v := range ChessBothA {
 		chess := NewChessman(idx, v[1], v[2], camp, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
-		fmt.Println("+++", idx, chess.Image, v)
+		fmt.Println("+++", idx, chess.Image, v, chess.Grid)
 		self.Chesses[idx] = chess
 
 		idx++
@@ -58,7 +60,7 @@ func (self *Chessboard) InitChess() {
 	}
 	for _, v := range ChessBothB {
 		chess := NewChessman(idx, v[1], v[2], camp, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
-		fmt.Println("---", idx, chess.Image, v)
+		fmt.Println("---", idx, chess.Image, v, chess.Grid)
 		self.Chesses[idx] = chess
 
 		idx++
