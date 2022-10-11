@@ -42,7 +42,7 @@ func NewChessman(id, x, y, camp int, name string, image string) *Chessman {
 	return chess
 }
 
-func (self *Chessman) dead() {
+func (self *Chessman) Dead() {
 	self.Alive = false
 }
 

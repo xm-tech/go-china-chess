@@ -13,7 +13,8 @@ import (
 // 棋盘
 type Chessboard struct {
 	// 棋盘背景图
-	bg      *ebiten.Image
+	bg *ebiten.Image
+	// 棋子
 	Chesses map[int]*Chessman
 }
 
@@ -41,7 +42,7 @@ func (self *Chessboard) InitChess() {
 
 	for _, v := range ChessBothA {
 		chess := NewChessman(idx, v[1], v[2], camp, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
-		fmt.Println("+++", idx, chess.Image, v, chess.Pos)
+		log.Println("+++", idx, chess.Image, v, chess.Pos)
 		self.Chesses[idx] = chess
 		PosChesses[chess.Pos] = chess.Id
 
@@ -59,7 +60,7 @@ func (self *Chessboard) InitChess() {
 	}
 	for _, v := range ChessBothB {
 		chess := NewChessman(idx, v[1], v[2], camp, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
-		fmt.Println("---", idx, chess.Image, v, chess.Pos)
+		log.Println("---", idx, chess.Image, v, chess.Pos)
 		self.Chesses[idx] = chess
 		PosChesses[chess.Pos] = chess.Id
 
