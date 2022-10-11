@@ -36,6 +36,10 @@ func NewChessman(id, x, y, camp int, name string, image string) *Chessman {
 	return chess
 }
 
+func (self *Chessman) dead() {
+	self.Alive = false
+}
+
 func (self *Chessman) move(x, y int) {
 	self.X = x
 	self.Y = y

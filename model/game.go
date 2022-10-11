@@ -63,6 +63,10 @@ func (g *Game) drawChessBoard(screen *ebiten.Image) {
 }
 
 func drawChess(screen *ebiten.Image, chess *Chessman) {
+	if !chess.Alive {
+		log.Println("drawChess fail,chess dead,chess:", chess)
+		return
+	}
 	options := &ebiten.DrawImageOptions{}
 	options.GeoM.Translate(float64(chess.X), float64(chess.Y))
 	screen.DrawImage(chess.Img, options)
