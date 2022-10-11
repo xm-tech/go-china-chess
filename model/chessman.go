@@ -1,6 +1,9 @@
 package model
 
-import "github.com/hajimehoshi/ebiten/v2"
+import (
+	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
+)
 
 // 棋子
 type Chessman struct {
@@ -27,6 +30,9 @@ func NewChessman(id, x, y, camp int, alive bool, name string, image string) *Che
 		Name:  name,
 		Image: image,
 	}
+
+	img, _, _ := ebitenutil.NewImageFromFile(chess.Image)
+	chess.Img = img
 	return chess
 }
 

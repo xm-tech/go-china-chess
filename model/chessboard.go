@@ -42,8 +42,6 @@ func (self *Chessboard) InitChess() {
 	for _, v := range ChessBothA {
 		chess := NewChessman(idx, v[1], v[2], camp, true, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
 		fmt.Println("+++", idx, chess.Image, v)
-		img, _, _ := ebitenutil.NewImageFromFile(chess.Image)
-		chess.Img = img
 		self.Chesses[idx] = chess
 
 		idx++
@@ -61,8 +59,6 @@ func (self *Chessboard) InitChess() {
 	for _, v := range ChessBothB {
 		chess := NewChessman(idx, v[1], v[2], camp, true, "", fmt.Sprintf("res/%v-%v.png", camp, v[0]))
 		fmt.Println("---", idx, chess.Image, v)
-		img, _, _ := ebitenutil.NewImageFromFile(chess.Image)
-		chess.Img = img
 		self.Chesses[idx] = chess
 
 		idx++
